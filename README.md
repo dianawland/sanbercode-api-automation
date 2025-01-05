@@ -6,5 +6,15 @@ Open a terminal or command prompt and navigate to the root directory of your pro
 
 Use the following command to install the required dependencies:
 
+- npm install
+  
+- npm version
+
+  Usage newman
+  
+- newman run 'Simple Book Api.postman_collection.json' -r cli,json
+
+
+
 
 
