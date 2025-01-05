@@ -1,0 +1,2350 @@
+{
+  "collection": {
+    "_": {
+      "postman_id": "c8123aa5-390c-4314-bd63-f9753fc9a51b",
+      "exporter_id": "4597773"
+    },
+    "item": [
+      {
+        "id": "ccdab8d4-1172-4857-966d-8601d080b637",
+        "name": "Api Status",
+        "request": {
+          "description": {
+            "content": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data.",
+            "type": "text/plain"
+          },
+          "url": {
+            "protocol": "https",
+            "path": [
+              "status"
+            ],
+            "host": [
+              "simple-books-api",
+              "glitch",
+              "me"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "method": "GET"
+        },
+        "response": [],
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "id": "fba2c556-9ef5-478c-9110-6b8dbab88fc0",
+              "type": "text/javascript",
+              "packages": {},
+              "exec": [
+                "pm.test(\"Status code is 200\", function () {",
+                "    pm.response.to.have.status(200);",
+                "});"
+              ],
+              "_lastExecutionId": "1ba0f3b5-390d-442d-b8f6-40cc1a44b6c9"
+            }
+          }
+        ]
+      },
+      {
+        "id": "128324f2-0131-4f75-aad2-ef52fbcbcbad",
+        "name": "List of books",
+        "request": {
+          "url": {
+            "path": [
+              "books"
+            ],
+            "host": [
+              "{{baseUrl}}"
+            ],
+            "query": [
+              {
+                "key": "type",
+                "value": "fiction"
+              },
+              {
+                "key": "foo",
+                "value": "2"
+              }
+            ],
+            "variable": []
+          },
+          "method": "GET"
+        },
+        "response": [],
+        "event": []
+      },
+      {
+        "id": "949fd8ba-adf0-4d33-a8de-9d533d3b54da",
+        "name": "Get Single book",
+        "request": {
+          "url": {
+            "path": [
+              "books",
+              "bookId"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "method": "GET"
+        },
+        "response": [],
+        "event": []
+      },
+      {
+        "id": "d34df120-9e3d-4a06-b972-c8656be63115",
+        "name": "Order Book",
+        "request": {
+          "url": {
+            "path": [
+              "orders"
+            ],
+            "host": [
+              "{{baseUrl}}"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "method": "POST"
+        },
+        "response": [],
+        "event": []
+      },
+      {
+        "id": "d3a61721-4570-4e3e-a389-ec51c39bdaa7",
+        "name": "Get all book orders",
+        "request": {
+          "url": {
+            "path": [
+              "orders"
+            ],
+            "host": [
+              "{{baseUrl}}"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "method": "GET",
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "type": "string",
+                "value": "ca9065ce647f804f8b1523c6562c7cfa763911a28f7290eb02e573a5f77f7ca3",
+                "key": "token"
+              }
+            ]
+          }
+        },
+        "response": [],
+        "event": []
+      },
+      {
+        "id": "70b687d5-8f6a-4869-96a4-00bb98bd1ff6",
+        "name": "Get an Order",
+        "request": {
+          "url": {
+            "path": [
+              "orders"
+            ],
+            "host": [
+              "{{baseUrl}}"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "method": "GET",
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "type": "string",
+                "value": "ca9065ce647f804f8b1523c6562c7cfa763911a28f7290eb02e573a5f77f7ca3",
+                "key": "token"
+              }
+            ]
+          }
+        },
+        "response": [],
+        "event": []
+      },
+      {
+        "id": "47950475-762f-404f-a137-9f4877698c17",
+        "name": "Update an Order",
+        "request": {
+          "url": {
+            "path": [
+              "orders"
+            ],
+            "host": [
+              "{{baseUrl}}"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "method": "GET",
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "type": "string",
+                "value": "ca9065ce647f804f8b1523c6562c7cfa763911a28f7290eb02e573a5f77f7ca3",
+                "key": "token"
+              }
+            ]
+          }
+        },
+        "response": [],
+        "event": []
+      },
+      {
+        "id": "bfb3d696-8b8c-4771-8a56-b6950f50accf",
+        "name": "Delete Order",
+        "request": {
+          "url": {
+            "path": [
+              "orders",
+              ":orderId"
+            ],
+            "host": [
+              "{{baseUrl}}"
+            ],
+            "query": [],
+            "variable": [
+              {
+                "type": "any",
+                "value": "D-BQcgGljCkpap9yG8kNE",
+                "key": "orderId"
+              }
+            ]
+          },
+          "method": "DELETE",
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "type": "string",
+                "value": "ca9065ce647f804f8b1523c6562c7cfa763911a28f7290eb02e573a5f77f7ca3",
+                "key": "token"
+              }
+            ]
+          }
+        },
+        "response": [],
+        "event": []
+      },
+      {
+        "id": "858768db-fac1-46a0-bf6b-34ac0f3401c1",
+        "name": "Register API client",
+        "request": {
+          "url": {
+            "path": [
+              "orders"
+            ],
+            "host": [
+              "{{baseUrl}}"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "method": "POST"
+        },
+        "response": [],
+        "event": []
+      }
+    ],
+    "event": [
+      {
+        "listen": "prerequest",
+        "script": {
+          "id": "8f22d736-c7a9-46c0-bfc2-3fd243a35951",
+          "type": "text/javascript",
+          "exec": [
+            ""
+          ],
+          "_lastExecutionId": "439d787d-52ec-41d9-88dd-68515ff5b33a"
+        }
+      },
+      {
+        "listen": "test",
+        "script": {
+          "id": "87d7b55e-d009-4fa3-80c0-8c3cb5847c93",
+          "type": "text/javascript",
+          "exec": [
+            ""
+          ],
+          "_lastExecutionId": "5a73e37b-447b-4a33-a606-6adf864cb242"
+        }
+      }
+    ],
+    "variable": [
+      {
+        "type": "any",
+        "value": "1",
+        "key": "id"
+      },
+      {
+        "type": "any",
+        "value": "https://postman-rest-api-learner.glitch.me/",
+        "key": "base_url"
+      },
+      {
+        "type": "any",
+        "value": "https://simple-books-api.glitch.me",
+        "key": "baseUrl"
+      }
+    ],
+    "info": {
+      "_postman_id": "c8123aa5-390c-4314-bd63-f9753fc9a51b",
+      "name": "Simple Book Api",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+      "description": {
+        "content": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Scripts\" tab**\n\nAdding tests to your requests can help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/fa30ea0a-373d-4545-a668-e7b283cca343/aW1hZ2UucG5n\" alt=\"\" height=\"1530\" width=\"2162\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n    \n- Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) to verify if the API works as expected and execute workflows.\n    \n\n## 💡Related templates\n\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)",
+        "type": "text/plain"
+      }
+    }
+  },
+  "environment": {
+    "id": "d277bf6a-556a-44de-8f09-0c92e6fe4fa1",
+    "values": []
+  },
+  "globals": {
+    "id": "cbe93150-8166-4973-bbb5-ef6843ccb2a5",
+    "values": []
+  },
+  "run": {
+    "stats": {
+      "iterations": {
+        "total": 1,
+        "pending": 0,
+        "failed": 0
+      },
+      "items": {
+        "total": 9,
+        "pending": 0,
+        "failed": 0
+      },
+      "scripts": {
+        "total": 19,
+        "pending": 0,
+        "failed": 0
+      },
+      "prerequests": {
+        "total": 9,
+        "pending": 0,
+        "failed": 0
+      },
+      "requests": {
+        "total": 9,
+        "pending": 0,
+        "failed": 1
+      },
+      "tests": {
+        "total": 9,
+        "pending": 0,
+        "failed": 0
+      },
+      "assertions": {
+        "total": 1,
+        "pending": 0,
+        "failed": 0
+      },
+      "testScripts": {
+        "total": 10,
+        "pending": 0,
+        "failed": 0
+      },
+      "prerequestScripts": {
+        "total": 9,
+        "pending": 0,
+        "failed": 0
+      }
+    },
+    "timings": {
+      "responseAverage": 567.9444444444445,
+      "responseMin": 255,
+      "responseMax": 1987,
+      "responseSd": 635.2174144182816,
+      "dnsAverage": 0,
+      "dnsMin": 0,
+      "dnsMax": 0,
+      "dnsSd": 0,
+      "firstByteAverage": 0,
+      "firstByteMin": 0,
+      "firstByteMax": 0,
+      "firstByteSd": 0,
+      "started": 1736107589858,
+      "completed": 1736107594247
+    },
+    "executions": [
+      {
+        "cursor": {
+          "position": 0,
+          "iteration": 0,
+          "length": 9,
+          "cycles": 1,
+          "empty": false,
+          "eof": false,
+          "bof": true,
+          "cr": false,
+          "ref": "e589775c-6e75-43f1-bd51-a25cc4671d71",
+          "httpRequestId": "b51a68f4-29f0-4882-a40a-f67deec92dea"
+        },
+        "item": {
+          "id": "ccdab8d4-1172-4857-966d-8601d080b637",
+          "name": "Api Status",
+          "request": {
+            "description": {
+              "content": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "https",
+              "path": [
+                "status"
+              ],
+              "host": [
+                "simple-books-api",
+                "glitch",
+                "me"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "fba2c556-9ef5-478c-9110-6b8dbab88fc0",
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ],
+                "_lastExecutionId": "1ba0f3b5-390d-442d-b8f6-40cc1a44b6c9"
+              }
+            }
+          ]
+        },
+        "request": {
+          "description": {
+            "content": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data.",
+            "type": "text/plain"
+          },
+          "url": {
+            "protocol": "https",
+            "path": [
+              "status"
+            ],
+            "host": [
+              "simple-books-api",
+              "glitch",
+              "me"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Accept",
+              "value": "*/*",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "6091bacc-9767-4153-9240-7e1706cb9c1f",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "simple-books-api.glitch.me",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            }
+          ],
+          "method": "GET"
+        },
+        "response": {
+          "id": "d0897245-8489-4e2c-8784-a2307f56d7a4",
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Sun, 05 Jan 2025 20:06:31 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "15"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "x-powered-by",
+              "value": "Express"
+            },
+            {
+              "key": "etag",
+              "value": "W/\"f-v/Y1JusChTxrQUzPtNAKycooOTA\""
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              115,
+              116,
+              97,
+              116,
+              117,
+              115,
+              34,
+              58,
+              34,
+              79,
+              75,
+              34,
+              125
+            ]
+          },
+          "cookie": [],
+          "responseTime": 1987,
+          "responseSize": 15
+        },
+        "id": "ccdab8d4-1172-4857-966d-8601d080b637",
+        "assertions": [
+          {
+            "assertion": "Status code is 200",
+            "skipped": false
+          }
+        ]
+      },
+      {
+        "cursor": {
+          "ref": "a73a0a40-1e67-4b7d-a1d0-8311c1b3cdcf",
+          "length": 9,
+          "cycles": 1,
+          "position": 1,
+          "iteration": 0,
+          "httpRequestId": "248237ad-9d19-4d9d-a6c7-b82440a9fedc"
+        },
+        "item": {
+          "id": "128324f2-0131-4f75-aad2-ef52fbcbcbad",
+          "name": "List of books",
+          "request": {
+            "url": {
+              "path": [
+                "books"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "type",
+                  "value": "fiction"
+                },
+                {
+                  "key": "foo",
+                  "value": "2"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET"
+          },
+          "response": [],
+          "event": []
+        },
+        "request": {
+          "url": {
+            "protocol": "https",
+            "path": [
+              "books"
+            ],
+            "host": [
+              "simple-books-api",
+              "glitch",
+              "me"
+            ],
+            "query": [
+              {
+                "key": "type",
+                "value": "fiction"
+              },
+              {
+                "key": "foo",
+                "value": "2"
+              }
+            ],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Accept",
+              "value": "*/*",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "8e109b7a-ad2a-4718-82e5-00e98bb22f69",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "simple-books-api.glitch.me",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            }
+          ],
+          "method": "GET"
+        },
+        "response": {
+          "id": "ce457a50-a9c6-4650-a1ff-001ff8a12560",
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Sun, 05 Jan 2025 20:06:32 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "283"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "x-powered-by",
+              "value": "Express"
+            },
+            {
+              "key": "etag",
+              "value": "W/\"11b-o9uRXcrIVMM6g2P09v+quQbTy2s\""
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              91,
+              123,
+              34,
+              105,
+              100,
+              34,
+              58,
+              49,
+              44,
+              34,
+              110,
+              97,
+              109,
+              101,
+              34,
+              58,
+              34,
+              84,
+              104,
+              101,
+              32,
+              82,
+              117,
+              115,
+              115,
+              105,
+              97,
+              110,
+              34,
+              44,
+              34,
+              116,
+              121,
+              112,
+              101,
+              34,
+              58,
+              34,
+              102,
+              105,
+              99,
+              116,
+              105,
+              111,
+              110,
+              34,
+              44,
+              34,
+              97,
+              118,
+              97,
+              105,
+              108,
+              97,
+              98,
+              108,
+              101,
+              34,
+              58,
+              116,
+              114,
+              117,
+              101,
+              125,
+              44,
+              123,
+              34,
+              105,
+              100,
+              34,
+              58,
+              51,
+              44,
+              34,
+              110,
+              97,
+              109,
+              101,
+              34,
+              58,
+              34,
+              84,
+              104,
+              101,
+              32,
+              86,
+              97,
+              110,
+              105,
+              115,
+              104,
+              105,
+              110,
+              103,
+              32,
+              72,
+              97,
+              108,
+              102,
+              34,
+              44,
+              34,
+              116,
+              121,
+              112,
+              101,
+              34,
+              58,
+              34,
+              102,
+              105,
+              99,
+              116,
+              105,
+              111,
+              110,
+              34,
+              44,
+              34,
+              97,
+              118,
+              97,
+              105,
+              108,
+              97,
+              98,
+              108,
+              101,
+              34,
+              58,
+              116,
+              114,
+              117,
+              101,
+              125,
+              44,
+              123,
+              34,
+              105,
+              100,
+              34,
+              58,
+              52,
+              44,
+              34,
+              110,
+              97,
+              109,
+              101,
+              34,
+              58,
+              34,
+              84,
+              104,
+              101,
+              32,
+              77,
+              105,
+              100,
+              110,
+              105,
+              103,
+              104,
+              116,
+              32,
+              76,
+              105,
+              98,
+              114,
+              97,
+              114,
+              121,
+              34,
+              44,
+              34,
+              116,
+              121,
+              112,
+              101,
+              34,
+              58,
+              34,
+              102,
+              105,
+              99,
+              116,
+              105,
+              111,
+              110,
+              34,
+              44,
+              34,
+              97,
+              118,
+              97,
+              105,
+              108,
+              97,
+              98,
+              108,
+              101,
+              34,
+              58,
+              116,
+              114,
+              117,
+              101,
+              125,
+              44,
+              123,
+              34,
+              105,
+              100,
+              34,
+              58,
+              54,
+              44,
+              34,
+              110,
+              97,
+              109,
+              101,
+              34,
+              58,
+              34,
+              86,
+              105,
+              115,
+              99,
+              111,
+              117,
+              110,
+              116,
+              32,
+              87,
+              104,
+              111,
+              32,
+              76,
+              111,
+              118,
+              101,
+              100,
+              32,
+              77,
+              101,
+              34,
+              44,
+              34,
+              116,
+              121,
+              112,
+              101,
+              34,
+              58,
+              34,
+              102,
+              105,
+              99,
+              116,
+              105,
+              111,
+              110,
+              34,
+              44,
+              34,
+              97,
+              118,
+              97,
+              105,
+              108,
+              97,
+              98,
+              108,
+              101,
+              34,
+              58,
+              116,
+              114,
+              117,
+              101,
+              125,
+              93
+            ]
+          },
+          "cookie": [],
+          "responseTime": 320,
+          "responseSize": 283
+        },
+        "id": "128324f2-0131-4f75-aad2-ef52fbcbcbad"
+      },
+      {
+        "cursor": {
+          "ref": "20a46471-3dcf-42a7-97df-faa2e6e92bcf",
+          "length": 9,
+          "cycles": 1,
+          "position": 2,
+          "iteration": 0,
+          "httpRequestId": "a440690f-ad86-473f-8fcb-39f16d0fe523"
+        },
+        "item": {
+          "id": "949fd8ba-adf0-4d33-a8de-9d533d3b54da",
+          "name": "Get Single book",
+          "request": {
+            "url": {
+              "path": [
+                "books",
+                "bookId"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET"
+          },
+          "response": [],
+          "event": []
+        },
+        "request": {
+          "url": {
+            "protocol": "http",
+            "path": [
+              "bookId"
+            ],
+            "host": [
+              "books"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Accept",
+              "value": "*/*",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "271efe00-7c36-4170-bfdc-db1f2fc6ff74",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            }
+          ],
+          "method": "GET"
+        },
+        "id": "949fd8ba-adf0-4d33-a8de-9d533d3b54da",
+        "requestError": {}
+      },
+      {
+        "cursor": {
+          "ref": "075d7dc9-c7ec-4995-b1c0-bf79691b6882",
+          "length": 9,
+          "cycles": 1,
+          "position": 3,
+          "iteration": 0,
+          "httpRequestId": "80d0360a-15f6-4446-87d9-1a6226a8b69f"
+        },
+        "item": {
+          "id": "d34df120-9e3d-4a06-b972-c8656be63115",
+          "name": "Order Book",
+          "request": {
+            "url": {
+              "path": [
+                "orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST"
+          },
+          "response": [],
+          "event": []
+        },
+        "request": {
+          "url": {
+            "protocol": "https",
+            "path": [
+              "orders"
+            ],
+            "host": [
+              "simple-books-api",
+              "glitch",
+              "me"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Accept",
+              "value": "*/*",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "2a969d54-c0c8-4f9a-a083-4041808e3795",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "simple-books-api.glitch.me",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "0",
+              "system": true
+            }
+          ],
+          "method": "POST"
+        },
+        "response": {
+          "id": "1a6a89f0-70a0-4388-be55-62952f17fb49",
+          "status": "Unauthorized",
+          "code": 401,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Sun, 05 Jan 2025 20:06:32 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "41"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "x-powered-by",
+              "value": "Express"
+            },
+            {
+              "key": "etag",
+              "value": "W/\"29-zVtH8ziijw/ex5/btOYG8wWe5dk\""
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              101,
+              114,
+              114,
+              111,
+              114,
+              34,
+              58,
+              34,
+              77,
+              105,
+              115,
+              115,
+              105,
+              110,
+              103,
+              32,
+              65,
+              117,
+              116,
+              104,
+              111,
+              114,
+              105,
+              122,
+              97,
+              116,
+              105,
+              111,
+              110,
+              32,
+              104,
+              101,
+              97,
+              100,
+              101,
+              114,
+              46,
+              34,
+              125
+            ]
+          },
+          "cookie": [],
+          "responseTime": 267,
+          "responseSize": 41
+        },
+        "id": "d34df120-9e3d-4a06-b972-c8656be63115"
+      },
+      {
+        "cursor": {
+          "ref": "411e2ae6-fd75-47ac-a082-86c6be32d304",
+          "length": 9,
+          "cycles": 1,
+          "position": 4,
+          "iteration": 0,
+          "httpRequestId": "cb59ad24-5ca8-4fb1-8aa6-c2ea8e6875a5"
+        },
+        "item": {
+          "id": "d3a61721-4570-4e3e-a389-ec51c39bdaa7",
+          "name": "Get all book orders",
+          "request": {
+            "url": {
+              "path": [
+                "orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "type": "string",
+                  "value": "ca9065ce647f804f8b1523c6562c7cfa763911a28f7290eb02e573a5f77f7ca3",
+                  "key": "token"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "event": []
+        },
+        "request": {
+          "url": {
+            "protocol": "https",
+            "path": [
+              "orders"
+            ],
+            "host": [
+              "simple-books-api",
+              "glitch",
+              "me"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Authorization",
+              "value": "Bearer ca9065ce647f804f8b1523c6562c7cfa763911a28f7290eb02e573a5f77f7ca3",
+              "system": true
+            },
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Accept",
+              "value": "*/*",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "1afb5e34-497c-4780-8cd8-495d09b3c866",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "simple-books-api.glitch.me",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            }
+          ],
+          "method": "GET",
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "type": "string",
+                "value": "ca9065ce647f804f8b1523c6562c7cfa763911a28f7290eb02e573a5f77f7ca3",
+                "key": "token"
+              }
+            ]
+          }
+        },
+        "response": {
+          "id": "f52efa6f-c676-4f3d-b7c0-8d39c2dfb72a",
+          "status": "Unauthorized",
+          "code": 401,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Sun, 05 Jan 2025 20:06:32 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "33"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "x-powered-by",
+              "value": "Express"
+            },
+            {
+              "key": "etag",
+              "value": "W/\"21-bG6N9MGZ9+XoO/KuGDSYhW5FJyc\""
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              101,
+              114,
+              114,
+              111,
+              114,
+              34,
+              58,
+              34,
+              73,
+              110,
+              118,
+              97,
+              108,
+              105,
+              100,
+              32,
+              98,
+              101,
+              97,
+              114,
+              101,
+              114,
+              32,
+              116,
+              111,
+              107,
+              101,
+              110,
+              46,
+              34,
+              125
+            ]
+          },
+          "cookie": [],
+          "responseTime": 255,
+          "responseSize": 33
+        },
+        "id": "d3a61721-4570-4e3e-a389-ec51c39bdaa7"
+      },
+      {
+        "cursor": {
+          "ref": "70589e09-9108-42b1-917a-f24142ebb704",
+          "length": 9,
+          "cycles": 1,
+          "position": 5,
+          "iteration": 0,
+          "httpRequestId": "df8a7a78-8e71-48c4-a836-a1497ade509c"
+        },
+        "item": {
+          "id": "70b687d5-8f6a-4869-96a4-00bb98bd1ff6",
+          "name": "Get an Order",
+          "request": {
+            "url": {
+              "path": [
+                "orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "type": "string",
+                  "value": "ca9065ce647f804f8b1523c6562c7cfa763911a28f7290eb02e573a5f77f7ca3",
+                  "key": "token"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "event": []
+        },
+        "request": {
+          "url": {
+            "protocol": "https",
+            "path": [
+              "orders"
+            ],
+            "host": [
+              "simple-books-api",
+              "glitch",
+              "me"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Authorization",
+              "value": "Bearer ca9065ce647f804f8b1523c6562c7cfa763911a28f7290eb02e573a5f77f7ca3",
+              "system": true
+            },
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Accept",
+              "value": "*/*",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "1509ebaf-3906-4a9f-bf4d-529d35e66d61",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "simple-books-api.glitch.me",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            }
+          ],
+          "method": "GET",
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "type": "string",
+                "value": "ca9065ce647f804f8b1523c6562c7cfa763911a28f7290eb02e573a5f77f7ca3",
+                "key": "token"
+              }
+            ]
+          }
+        },
+        "response": {
+          "id": "24155f1c-d368-4cde-94a1-6abc0f7d020d",
+          "status": "Unauthorized",
+          "code": 401,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Sun, 05 Jan 2025 20:06:33 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "33"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "x-powered-by",
+              "value": "Express"
+            },
+            {
+              "key": "etag",
+              "value": "W/\"21-bG6N9MGZ9+XoO/KuGDSYhW5FJyc\""
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              101,
+              114,
+              114,
+              111,
+              114,
+              34,
+              58,
+              34,
+              73,
+              110,
+              118,
+              97,
+              108,
+              105,
+              100,
+              32,
+              98,
+              101,
+              97,
+              114,
+              101,
+              114,
+              32,
+              116,
+              111,
+              107,
+              101,
+              110,
+              46,
+              34,
+              125
+            ]
+          },
+          "cookie": [],
+          "responseTime": 335,
+          "responseSize": 33
+        },
+        "id": "70b687d5-8f6a-4869-96a4-00bb98bd1ff6"
+      },
+      {
+        "cursor": {
+          "ref": "e79a0bb1-8b65-4cd3-81d9-f7e7c257efc0",
+          "length": 9,
+          "cycles": 1,
+          "position": 6,
+          "iteration": 0,
+          "httpRequestId": "115e4852-2e83-441a-b387-58b7188e7ff1"
+        },
+        "item": {
+          "id": "47950475-762f-404f-a137-9f4877698c17",
+          "name": "Update an Order",
+          "request": {
+            "url": {
+              "path": [
+                "orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "type": "string",
+                  "value": "ca9065ce647f804f8b1523c6562c7cfa763911a28f7290eb02e573a5f77f7ca3",
+                  "key": "token"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "event": []
+        },
+        "request": {
+          "url": {
+            "protocol": "https",
+            "path": [
+              "orders"
+            ],
+            "host": [
+              "simple-books-api",
+              "glitch",
+              "me"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Authorization",
+              "value": "Bearer ca9065ce647f804f8b1523c6562c7cfa763911a28f7290eb02e573a5f77f7ca3",
+              "system": true
+            },
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Accept",
+              "value": "*/*",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "5ed1975b-bf05-4fd5-b817-e0b2a0f72c3d",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "simple-books-api.glitch.me",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            }
+          ],
+          "method": "GET",
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "type": "string",
+                "value": "ca9065ce647f804f8b1523c6562c7cfa763911a28f7290eb02e573a5f77f7ca3",
+                "key": "token"
+              }
+            ]
+          }
+        },
+        "response": {
+          "id": "ce21a063-8d5f-4aeb-ba3f-1ab02bdcc3e9",
+          "status": "Unauthorized",
+          "code": 401,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Sun, 05 Jan 2025 20:06:33 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "33"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "x-powered-by",
+              "value": "Express"
+            },
+            {
+              "key": "etag",
+              "value": "W/\"21-bG6N9MGZ9+XoO/KuGDSYhW5FJyc\""
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              101,
+              114,
+              114,
+              111,
+              114,
+              34,
+              58,
+              34,
+              73,
+              110,
+              118,
+              97,
+              108,
+              105,
+              100,
+              32,
+              98,
+              101,
+              97,
+              114,
+              101,
+              114,
+              32,
+              116,
+              111,
+              107,
+              101,
+              110,
+              46,
+              34,
+              125
+            ]
+          },
+          "cookie": [],
+          "responseTime": 261,
+          "responseSize": 33
+        },
+        "id": "47950475-762f-404f-a137-9f4877698c17"
+      },
+      {
+        "cursor": {
+          "ref": "b25f14b3-328a-499d-9db0-60941679dd3d",
+          "length": 9,
+          "cycles": 1,
+          "position": 7,
+          "iteration": 0,
+          "httpRequestId": "a74cd70c-fecc-4356-9998-ea3ca9104d17"
+        },
+        "item": {
+          "id": "bfb3d696-8b8c-4771-8a56-b6950f50accf",
+          "name": "Delete Order",
+          "request": {
+            "url": {
+              "path": [
+                "orders",
+                ":orderId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "type": "any",
+                  "value": "D-BQcgGljCkpap9yG8kNE",
+                  "key": "orderId"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "type": "string",
+                  "value": "ca9065ce647f804f8b1523c6562c7cfa763911a28f7290eb02e573a5f77f7ca3",
+                  "key": "token"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "event": []
+        },
+        "request": {
+          "url": {
+            "protocol": "https",
+            "path": [
+              "orders",
+              "D-BQcgGljCkpap9yG8kNE"
+            ],
+            "host": [
+              "simple-books-api",
+              "glitch",
+              "me"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "Authorization",
+              "value": "Bearer ca9065ce647f804f8b1523c6562c7cfa763911a28f7290eb02e573a5f77f7ca3",
+              "system": true
+            },
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Accept",
+              "value": "*/*",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "c76f8b28-1f2b-4241-bc6f-217d211071b2",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "simple-books-api.glitch.me",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            }
+          ],
+          "method": "DELETE",
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "type": "string",
+                "value": "ca9065ce647f804f8b1523c6562c7cfa763911a28f7290eb02e573a5f77f7ca3",
+                "key": "token"
+              }
+            ]
+          }
+        },
+        "response": {
+          "id": "4c5356a3-0a3c-4865-8e25-b6d95c116e51",
+          "status": "Unauthorized",
+          "code": 401,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Sun, 05 Jan 2025 20:06:33 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "33"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "x-powered-by",
+              "value": "Express"
+            },
+            {
+              "key": "etag",
+              "value": "W/\"21-bG6N9MGZ9+XoO/KuGDSYhW5FJyc\""
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              101,
+              114,
+              114,
+              111,
+              114,
+              34,
+              58,
+              34,
+              73,
+              110,
+              118,
+              97,
+              108,
+              105,
+              100,
+              32,
+              98,
+              101,
+              97,
+              114,
+              101,
+              114,
+              32,
+              116,
+              111,
+              107,
+              101,
+              110,
+              46,
+              34,
+              125
+            ]
+          },
+          "cookie": [],
+          "responseTime": 267,
+          "responseSize": 33
+        },
+        "id": "bfb3d696-8b8c-4771-8a56-b6950f50accf"
+      },
+      {
+        "cursor": {
+          "ref": "cb9458d0-f9f5-496a-a8ca-2eed39cc84a8",
+          "length": 9,
+          "cycles": 1,
+          "position": 8,
+          "iteration": 0,
+          "httpRequestId": "915884f4-35d7-446a-88c8-16a78b71935d"
+        },
+        "item": {
+          "id": "858768db-fac1-46a0-bf6b-34ac0f3401c1",
+          "name": "Register API client",
+          "request": {
+            "url": {
+              "path": [
+                "orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST"
+          },
+          "response": [],
+          "event": []
+        },
+        "request": {
+          "url": {
+            "protocol": "https",
+            "path": [
+              "orders"
+            ],
+            "host": [
+              "simple-books-api",
+              "glitch",
+              "me"
+            ],
+            "query": [],
+            "variable": []
+          },
+          "header": [
+            {
+              "key": "User-Agent",
+              "value": "PostmanRuntime/7.39.1",
+              "system": true
+            },
+            {
+              "key": "Accept",
+              "value": "*/*",
+              "system": true
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache",
+              "system": true
+            },
+            {
+              "key": "Postman-Token",
+              "value": "e97e677b-b100-4b4b-acf3-03c2df2f5f86",
+              "system": true
+            },
+            {
+              "key": "Host",
+              "value": "simple-books-api.glitch.me",
+              "system": true
+            },
+            {
+              "key": "Accept-Encoding",
+              "value": "gzip, deflate, br",
+              "system": true
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "system": true
+            },
+            {
+              "key": "Content-Length",
+              "value": "0",
+              "system": true
+            }
+          ],
+          "method": "POST"
+        },
+        "response": {
+          "id": "22b8e5b8-9ac5-4f56-b691-feb4294e63d9",
+          "status": "Unauthorized",
+          "code": 401,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Sun, 05 Jan 2025 20:06:34 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "41"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "x-powered-by",
+              "value": "Express"
+            },
+            {
+              "key": "etag",
+              "value": "W/\"29-zVtH8ziijw/ex5/btOYG8wWe5dk\""
+            }
+          ],
+          "stream": {
+            "type": "Buffer",
+            "data": [
+              123,
+              34,
+              101,
+              114,
+              114,
+              111,
+              114,
+              34,
+              58,
+              34,
+              77,
+              105,
+              115,
+              115,
+              105,
+              110,
+              103,
+              32,
+              65,
+              117,
+              116,
+              104,
+              111,
+              114,
+              105,
+              122,
+              97,
+              116,
+              105,
+              111,
+              110,
+              32,
+              104,
+              101,
+              97,
+              100,
+              101,
+              114,
+              46,
+              34,
+              125
+            ]
+          },
+          "cookie": [],
+          "responseTime": 266,
+          "responseSize": 41
+        },
+        "id": "858768db-fac1-46a0-bf6b-34ac0f3401c1"
+      }
+    ],
+    "transfers": {
+      "responseTotal": 512
+    },
+    "failures": [
+      {
+        "error": {
+          "name": "Error",
+          "message": "Invalid URI \"http:///books/bookId\"",
+          "stack": "Error: Invalid URI \"http:///books/bookId\"\n    at Request.init (/home/diana/.nvm/versions/node/v16.20.1/lib/node_modules/newman/node_modules/postman-request/request.js:399:31)\n    at new Request (/home/diana/.nvm/versions/node/v16.20.1/lib/node_modules/newman/node_modules/postman-request/request.js:226:8)\n    at request (/home/diana/.nvm/versions/node/v16.20.1/lib/node_modules/newman/node_modules/postman-request/index.js:46:10)\n    at /home/diana/.nvm/versions/node/v16.20.1/lib/node_modules/newman/node_modules/postman-runtime/lib/requester/request-wrapper.js:79:23\n    at wrapper (/home/diana/.nvm/versions/node/v16.20.1/lib/node_modules/newman/node_modules/async/dist/async.js:273:20)\n    at next (/home/diana/.nvm/versions/node/v16.20.1/lib/node_modules/newman/node_modules/async/dist/async.js:5797:24)\n    at /home/diana/.nvm/versions/node/v16.20.1/lib/node_modules/newman/node_modules/async/dist/async.js:329:20\n    at setCertificate (/home/diana/.nvm/versions/node/v16.20.1/lib/node_modules/newman/node_modules/postman-runtime/lib/requester/request-wrapper.js:50:20)\n    at /home/diana/.nvm/versions/node/v16.20.1/lib/node_modules/newman/node_modules/postman-runtime/lib/requester/request-wrapper.js:74:13\n    at nextTask (/home/diana/.nvm/versions/node/v16.20.1/lib/node_modules/newman/node_modules/async/dist/async.js:5791:13)\n    at next (/home/diana/.nvm/versions/node/v16.20.1/lib/node_modules/newman/node_modules/async/dist/async.js:5799:13)\n    at /home/diana/.nvm/versions/node/v16.20.1/lib/node_modules/newman/node_modules/async/dist/async.js:329:20\n    at setProxy (/home/diana/.nvm/versions/node/v16.20.1/lib/node_modules/newman/node_modules/postman-runtime/lib/requester/request-wrapper.js:31:9)\n    at /home/diana/.nvm/versions/node/v16.20.1/lib/node_modules/newman/node_modules/postman-runtime/lib/requester/request-wrapper.js:71:13\n    at nextTask (/home/diana/.nvm/versions/node/v16.20.1/lib/node_modules/newman/node_modules/async/dist/async.js:5791:13)\n    at Object.waterfall (/home/diana/.nvm/versions/node/v16.20.1/lib/node_modules/newman/node_modules/async/dist/async.js:5802:9)",
+          "checksum": "3a7f3dd1832821f46e87f1a560651d8a",
+          "id": "8a1b3c81-0ff6-4149-8fec-78aede34d996",
+          "timestamp": 1736107592359,
+          "stacktrace": [
+            {
+              "fileName": "/home/diana/.nvm/versions/node/v16.20.1/lib/node_modules/newman/node_modules/postman-request/request.js",
+              "lineNumber": 399,
+              "functionName": "Request.init",
+              "typeName": "Request",
+              "methodName": "init",
+              "columnNumber": 31,
+              "native": false
+            },
+            {
+              "fileName": "/home/diana/.nvm/versions/node/v16.20.1/lib/node_modules/newman/node_modules/postman-request/request.js",
+              "lineNumber": 226,
+              "functionName": "new Request",
+              "typeName": "Object",
+              "methodName": null,
+              "columnNumber": 8,
+              "native": false
+            },
+            {
+              "fileName": "/home/diana/.nvm/versions/node/v16.20.1/lib/node_modules/newman/node_modules/postman-request/index.js",
+              "lineNumber": 46,
+              "functionName": "request",
+              "typeName": "Object",
+              "methodName": null,
+              "columnNumber": 10,
+              "native": false
+            },
+            {
+              "fileName": "/home/diana/.nvm/versions/node/v16.20.1/lib/node_modules/newman/node_modules/postman-runtime/lib/requester/request-wrapper.js",
+              "lineNumber": 79,
+              "functionName": null,
+              "typeName": null,
+              "methodName": null,
+              "columnNumber": 23,
+              "native": false
+            },
+            {
+              "fileName": "/home/diana/.nvm/versions/node/v16.20.1/lib/node_modules/newman/node_modules/async/dist/async.js",
+              "lineNumber": 273,
+              "functionName": "wrapper",
+              "typeName": "Object",
+              "methodName": null,
+              "columnNumber": 20,
+              "native": false
+            },
+            {
+              "fileName": "/home/diana/.nvm/versions/node/v16.20.1/lib/node_modules/newman/node_modules/async/dist/async.js",
+              "lineNumber": 5797,
+              "functionName": "next",
+              "typeName": "Object",
+              "methodName": null,
+              "columnNumber": 24,
+              "native": false
+            },
+            {
+              "fileName": "/home/diana/.nvm/versions/node/v16.20.1/lib/node_modules/newman/node_modules/async/dist/async.js",
+              "lineNumber": 329,
+              "functionName": null,
+              "typeName": null,
+              "methodName": null,
+              "columnNumber": 20,
+              "native": false
+            },
+            {
+              "fileName": "/home/diana/.nvm/versions/node/v16.20.1/lib/node_modules/newman/node_modules/postman-runtime/lib/requester/request-wrapper.js",
+              "lineNumber": 50,
+              "functionName": "setCertificate",
+              "typeName": "Object",
+              "methodName": null,
+              "columnNumber": 20,
+              "native": false
+            },
+            {
+              "fileName": "/home/diana/.nvm/versions/node/v16.20.1/lib/node_modules/newman/node_modules/postman-runtime/lib/requester/request-wrapper.js",
+              "lineNumber": 74,
+              "functionName": null,
+              "typeName": null,
+              "methodName": null,
+              "columnNumber": 13,
+              "native": false
+            },
+            {
+              "fileName": "/home/diana/.nvm/versions/node/v16.20.1/lib/node_modules/newman/node_modules/async/dist/async.js",
+              "lineNumber": 5791,
+              "functionName": "nextTask",
+              "typeName": "Object",
+              "methodName": null,
+              "columnNumber": 13,
+              "native": false
+            },
+            {
+              "fileName": "/home/diana/.nvm/versions/node/v16.20.1/lib/node_modules/newman/node_modules/async/dist/async.js",
+              "lineNumber": 5799,
+              "functionName": "next",
+              "typeName": "Object",
+              "methodName": null,
+              "columnNumber": 13,
+              "native": false
+            },
+            {
+              "fileName": "/home/diana/.nvm/versions/node/v16.20.1/lib/node_modules/newman/node_modules/async/dist/async.js",
+              "lineNumber": 329,
+              "functionName": null,
+              "typeName": null,
+              "methodName": null,
+              "columnNumber": 20,
+              "native": false
+            },
+            {
+              "fileName": "/home/diana/.nvm/versions/node/v16.20.1/lib/node_modules/newman/node_modules/postman-runtime/lib/requester/request-wrapper.js",
+              "lineNumber": 31,
+              "functionName": "setProxy",
+              "typeName": "Object",
+              "methodName": null,
+              "columnNumber": 9,
+              "native": false
+            },
+            {
+              "fileName": "/home/diana/.nvm/versions/node/v16.20.1/lib/node_modules/newman/node_modules/postman-runtime/lib/requester/request-wrapper.js",
+              "lineNumber": 71,
+              "functionName": null,
+              "typeName": null,
+              "methodName": null,
+              "columnNumber": 13,
+              "native": false
+            },
+            {
+              "fileName": "/home/diana/.nvm/versions/node/v16.20.1/lib/node_modules/newman/node_modules/async/dist/async.js",
+              "lineNumber": 5791,
+              "functionName": "nextTask",
+              "typeName": "Object",
+              "methodName": null,
+              "columnNumber": 13,
+              "native": false
+            },
+            {
+              "fileName": "/home/diana/.nvm/versions/node/v16.20.1/lib/node_modules/newman/node_modules/async/dist/async.js",
+              "lineNumber": 5802,
+              "functionName": "Object.waterfall",
+              "typeName": "Object",
+              "methodName": "waterfall",
+              "columnNumber": 9,
+              "native": false
+            }
+          ]
+        },
+        "at": "request",
+        "source": {
+          "id": "949fd8ba-adf0-4d33-a8de-9d533d3b54da",
+          "name": "Get Single book",
+          "request": {
+            "url": {
+              "protocol": "http",
+              "path": [
+                "bookId"
+              ],
+              "host": [
+                "books"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "User-Agent",
+                "value": "PostmanRuntime/7.39.1",
+                "system": true
+              },
+              {
+                "key": "Accept",
+                "value": "*/*",
+                "system": true
+              },
+              {
+                "key": "Cache-Control",
+                "value": "no-cache",
+                "system": true
+              },
+              {
+                "key": "Postman-Token",
+                "value": "271efe00-7c36-4170-bfdc-db1f2fc6ff74",
+                "system": true
+              },
+              {
+                "key": "Host",
+                "value": "",
+                "system": true
+              },
+              {
+                "key": "Accept-Encoding",
+                "value": "gzip, deflate, br",
+                "system": true
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive",
+                "system": true
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [],
+          "event": []
+        },
+        "cursor": {
+          "ref": "20a46471-3dcf-42a7-97df-faa2e6e92bcf",
+          "length": 9,
+          "cycles": 1,
+          "position": 2,
+          "iteration": 0,
+          "httpRequestId": "a440690f-ad86-473f-8fcb-39f16d0fe523"
+        }
+      }
+    ],
+    "error": null
+  }
+}
