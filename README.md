@@ -12,15 +12,19 @@ Use the following command to install the required dependencies:
 
   Usage newman and install newman
 
-  - Using Newman CLI
-    The newman run command allows you to specify a collection to be run. You can easily export your Postman Collection as a json file from the Postman App and run it using Newman.
+  Getting started
+To run Newman, ensure that you have Node.js >= v16. Install Node.js via package manager.
 
-    -$ newman run 'Simple Book Api.postman_collection.json'
+Installation
+The easiest way to install Newman is using NPM. If you have Node.js installed, it is most likely that you have NPM installed as well.
+
+$ npm install -g newman
+This installs Newman globally on your system allowing you to run it from anywhere. If you want to install
 
   Using Reporters with Newman
 Reporters provide information about the current collection run in a format that is easy to both: disseminate and assimilate. Reporters can be configured using the -r or --reporters options. Inbuilt reporters in newman are: cli, json, junit, progress and emojitrain.
 
-    -$ newman run 'Simple Book Api.postman_collection.json' -r cli,json
+ $ newman run 'Simple Book Api.postman_collection.json' -r cli,json
 
 
 
