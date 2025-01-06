@@ -8,11 +8,13 @@ Use the following command to install the required dependencies:
 
 - npm install
   
-- npm version
+- npm version 
 
-  Usage newman
+  Usage newman and install newman
+
+  - 
   
-- newman run 'Simple Book Api.postman_collection.json' -r cli.json
+  - newman run 'Simple Book Api.postman_collection.json' -r cli.json
 
 
 
