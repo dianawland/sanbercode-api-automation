@@ -12,7 +12,7 @@ Use the following command to install the required dependencies:
 
   Usage newman
   
-- newman run 'Simple Book Api.postman_collection.json' -r cli,json
+- newman run 'Simple Book Api.postman_collection.json' -r cli.json
 
 
 
